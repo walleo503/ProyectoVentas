@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "Cambiar Contraseña";
+}
+
+<style>
+    .container {
+        width: 550px;
+        padding:60px;
+        border: 2px solid #007bff;
+        border-radius: 10px;
+        text-align: center;
+        background-color: white;
+        margin: 50px auto ;
+    }
+
+    h1 {
+        color: #e3002a;
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        margin: 10px 0 5px 10px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-confirmar {
+        background-color: #e3002a;
+        color: white;
+        padding: 10px;
+        border: none;
+        width: 95%;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+        .btn-confirmar:hover {
+            background-color: #c0001f;
+        }
+
+    body {
+        background-image: url('/ruta/de/tu/imagen.jpg'); /* Cambia la ruta */
+        background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+        background-position: center; /* Centra la imagen */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        margin: 0;
+    }
+
+</style>
+
+<div >
+    <h1>Cambiar Contraseña</h1>
+
+    <div method="post">
+        <div>
+            <label>Contraseña Nueva:</label>
+            <input type="password" name="nuevaContrasena" />
+        </div>
+
+        <div>
+            <label>Confirmar Contraseña:</label>
+            <input type="password" name="confirmarContrasena" />
+        </div>
+
+        <button type="submit" class="btn-confirmar">Confirmar</button>
+    </div>
+</div>
+
