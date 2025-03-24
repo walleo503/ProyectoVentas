@@ -10,12 +10,7 @@ builder.Services.AddDbContext<restauranteDbContext>(opt =>
         opt.UseSqlServer(
             builder.Configuration.GetConnectionString("RestauranteDbConnection")
             )
-
-
-
 );
-
-
 
 var app = builder.Build();
 
