@@ -38,5 +38,10 @@ namespace ProyectoVentas.Controllers
         {
             return View();
         }
+
+        public IActionResult contacto()
+        {
+            return View();
+        }
     }
 }
