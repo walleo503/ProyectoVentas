@@ -1,8 +1,261 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Foodie - Comida Rápida";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .top-right-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px; 
+        z-index: 1000; 
+    }
+
+        .top-right-container .logo {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .top-right-container .login-icon {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .top-right-container .login-icon:hover {
+                color: #F2D9DD;
+            }
+
+    .hero-section {
+        background-image: url('https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        width: 100%;
+    }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, rgba(102, 0, 0, 0.8), transparent);
+            z-index: 1;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+    .btn-order {
+        background-color: #C2102B;
+        color: white;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+        .btn-order:hover {
+            background-color: #F2D9DD;
+            color: rgba(102, 0, 0, 0.8);
+        }
+
+    
+    .content-section {
+        padding: 50px 0;
+        background-color: #f8f9fa;
+    }
+
+        .content-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+    
+    .row .col-md-4 {
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-bottom: 60px;
+    }
+
+    
+    .card {
+        position: relative;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .card-body {
+        padding: 20px;
+        text-align: center;
+    }
+
+        .card-body h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+    .card-text {
+        color: #777;
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+
+    
+    .new-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #C2102B;
+        color: white;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        border-radius: 5px;
+        z-index: 1;
+    }
+
+    .hot-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #0aa61f;
+        color: white;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        border-radius: 5px;
+        z-index: 1;
+    }
+
+    .high {
+        color: #FF0000;
+    }
+
+    .recomment {
+        color: #C2102B;
+    }
+</style>
+
+<div class="top-right-container">
+    <!-- <a href="/Account/Login" class="login-icon">
+        <i class="fas fa-user"></i>
+    </a> -->
+    <img src="./img/logo.png" alt="Foodie Logo" class="logo">
+    
 </div>
+
+<!-- Sección Hero (solo en la página de inicio) -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>¡Bienvenido a <strong class="high">Foodie!</strong></h1>
+        <p>La mejor comida rápida, rápida y deliciosa, justo para ti.</p>
+        <a href="#nuestros-favoritos" class="btn-order">Ordenar Ahora</a>
+    </div>
+</section>
+
+<!-- Sección de Menú Destacado -->
+<section class="content-section" id="nuestros-favoritos">
+    <div class="container">
+        <h2><strong class="recomment">Foodie Recomienda</strong></h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pizza">
+                    <span class="hot-badge">Popular</span>
+                    <div class="card-body">
+                        <h4>Pizza 4 quesos</h4>
+                        <p class="card-text">Pizza jugosa, fresca con tomate y nuestra salsa especial.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Papas Fritas">
+                    <span class="new-badge">New</span>
+                    <div class="card-body">
+                        <h4>Hamburguesa con Papas</h4>
+                        <p class="card-text">Perfectamente doradas y sazonadas, el acompañamiento ideal.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://images.unsplash.com/photo-1618183536229-264272f21ff8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Coca-Cola">
+                    <span class="new-badge">New</span>
+                    <div class="card-body">
+                        <h4>Refresco Grande</h4>
+                        <p class="card-text">Elige tu sabor favorito para refrescar tu comida.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

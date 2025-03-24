@@ -3,61 +3,116 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProyectoVentas</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - Foodie</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProyectoVentas.styles.css" asp-append-version="true" />
     <style>
-        /* Estilo personalizado para el menú hamburguesa */
         .hamburger-menu {
-            position: relative;
-        }
-
-        .hamburger-menu .nav-menu {
-            display: none;
-            position: absolute;
-            top: 40px;
-            left: 0;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
+            position: fixed;
+            top: 15px;
+            left: 15px;
             z-index: 1000;
         }
 
-        .hamburger-menu input[type="checkbox"] {
-            display: none;
-        }
+            .hamburger-menu .nav-menu {
+                display: none;
+                position: absolute;
+                top: 40px;
+                left: 0;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
 
-        .hamburger-menu input[type="checkbox"]:checked ~ .nav-menu {
-            display: block;
-        }
+            .hamburger-menu input[type="checkbox"] {
+                display: none;
+            }
+
+                .hamburger-menu input[type="checkbox"]:checked ~ .nav-menu {
+                    display: block;
+                }
 
         .hamburger-icon {
             font-size: 24px;
             cursor: pointer;
-            padding: 5px 10px;
+            color: #ffff;
         }
+
+        .nav-menu a {
+            display: block;
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+        }
+
+            .nav-menu a:hover {
+                background-color: #f8f9fa;
+                color: #C2102B;
+            }
+
+        .content-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+            .content-section h2 {
+                text-align: center;
+                margin-bottom: 40px;
+                color: #333;
+            }
+
+        .menu-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .menu-item img {
+                width: 100%;
+                max-width: 300px;
+                border-radius: 10px;
+            }
+
+            .menu-item h4 {
+                margin-top: 15px;
+                color: #333;
+            }
+
+            .menu-item p {
+                color: #777;
+            }
     </style>
 </head>
 <body>
-    <!-- Menú hamburguesa -->
+
     <div class="hamburger-menu">
-        <label class="hamburger-icon" for="menu-toggle">&#9776;</label>
+        <label class="hamburger-icon" for="menu-toggle"><i class="fas fa-bars"></i></label>
         <input type="checkbox" id="menu-toggle" />
         <div class="nav-menu">
-            <ul class="list-unstyled">
-                <li><a href="/" class="text-dark">Inicio</a></li>
-                <li><a href="/Productos" class="text-dark">Productos</a></li>
-                <li><a href="/Ventas" class="text-dark">Ventas</a></li>
-                <li><a href="/Contacto" class="text-dark">Contacto</a></li>
-            </ul>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="text-dark">Inicio</a>
+            <a asp-area="" asp-controller="Home" asp-action="Menu" class="text-dark">Menú</a>
+            <a asp-area="" asp-controller="Home" asp-action="About" class="text-dark">Nosotros</a>
+            <a asp-area="" asp-controller="Home" asp-action="Contact" class="text-dark">Contacto</a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-dark">Privacidad</a>
         </div>
     </div>
 
-    <div class="container">
+    <main role="main" class="pb-3">
         @RenderBody()
-    </div>
+    </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    @RenderSection("Scripts", required: false)
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            © 2025 - Foodie - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
