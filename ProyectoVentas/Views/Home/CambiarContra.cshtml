@@ -4,10 +4,18 @@
 }
 
 <style>
+    body {
+        background-image: url('/img/logo.png'); /* Cambia la ruta */
+        background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+        background-position: center; /* Centra la imagen */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        margin: 0;
+    }
+
     .container {
         width: 550px;
         padding:60px;
-        border: 2px solid #007bff;
         border-radius: 10px;
         text-align: center;
         background-color: white;
@@ -56,18 +64,11 @@
             background-color: #c0001f;
         }
 
-    body {
-        background-image: url('/ruta/de/tu/imagen.jpg'); /* Cambia la ruta */
-        background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-        background-position: center; /* Centra la imagen */
-        background-repeat: no-repeat; /* Evita que la imagen se repita */
-        height: 100vh; /* Ocupa toda la altura de la pantalla */
-        margin: 0;
-    }
+
 
 </style>
 
-<div >
+<div class="container">
     <h1>Cambiar Contraseña</h1>
 
     <div method="post">

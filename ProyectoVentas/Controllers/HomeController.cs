@@ -28,5 +28,15 @@ namespace ProyectoVentas.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult CambiarContra()
+        {
+            return View();
+        }
+
+        public IActionResult Menu()
+        {
+            return View();
+        }
     }
 }
