@@ -6,60 +6,102 @@
         background-color: #f8f8f8;
         font-family: 'Arial', sans-serif;
         margin: 0;
-        padding: 20px;
-    }
-
-    .menu-header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .menu-title {
-        color: #e3002a;
-        font-size: 32px;
-        font-weight: bold;
-        margin-bottom: 10px;
+        padding: 0;
     }
 
     /* Contenedor principal */
     .menu-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Encabezado con flecha integrada en el título */
+    .header-container {
+        background: white;
+        padding: 15px 20px;
+        position: relative;
+        border-bottom: 2px solid #e3002a;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .title-wrapper {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        max-width: 80%;
+    }
+
+    .back-button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        position: absolute;
+        left: -25px; /* Posición exacta pegada al título */
+    }
+
+    .back-arrow {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-left: 3px solid #e3002a;
+        border-bottom: 3px solid #e3002a;
+        transform: rotate(45deg);
+    }
+
+    .title-content {
+        display: inline-block;
+    }
+
+    .main-title {
+        color: #e3002a;
+        font-size: 26px;
+        font-weight: bold;
+        margin: 0;
+        display: inline;
+    }
+
+    .subtitle {
+        color: #333;
+        font-size: 18px;
+        margin: 5px 0 0;
+        font-weight: bold;
+    }
+
+    .logo {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 30px;
     }
 
     /* Sección de filtros */
-    .filtros-container {
+    .filters-container {
         background: white;
-        border-radius: 12px;
-        padding: 25px;
-        margin-bottom: 30px;
+        padding: 25px 20px;
+        margin: 20px 0;
         box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .filtros-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 15px;
-    }
-
-    .filtros-titulo {
+    .filters-title {
         color: #e3002a;
         font-size: 22px;
         font-weight: bold;
-        margin: 0;
+        text-align: center;
+        margin-bottom: 20px;
     }
 
-    .filtros-categorias {
+    .filters-grid {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 12px;
     }
 
-    .filtro-item {
+    .filter-item {
         background: #f5f5f5;
         border: 1px solid #ddd;
         border-radius: 20px;
@@ -69,38 +111,21 @@
         transition: all 0.3s ease;
     }
 
-        .filtro-item:hover, .filtro-item.active {
+        .filter-item:hover, .filter-item.active {
             background: #e3002a;
             color: white;
             border-color: #e3002a;
         }
 
-    /* Sección de hamburguesas */
-    .categoria-titulo {
-        color: #e3002a;
-        font-size: 26px;
-        text-align: center;
-        margin: 30px 0 20px;
-        position: relative;
-    }
-
-        .categoria-titulo:after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: #e3002a;
-            margin: 10px auto 0;
-        }
-
-    .hamburguesas-grid {
+    /* Sección de productos */
+    .products-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 25px;
-        margin-top: 20px;
+        padding: 20px;
     }
 
-    .hamburguesa-card {
+    .product-card {
         background: white;
         border-radius: 12px;
         overflow: hidden;
@@ -108,22 +133,22 @@
         transition: transform 0.3s ease;
     }
 
-        .hamburguesa-card:hover {
+        .product-card:hover {
             transform: translateY(-5px);
         }
 
-    .hamburguesa-imagen {
+    .product-image {
         height: 180px;
         background-color: #eee;
         background-size: cover;
         background-position: center;
     }
 
-    .hamburguesa-info {
+    .product-info {
         padding: 18px;
     }
 
-    .hamburguesa-nombre {
+    .product-name {
         color: #333;
         font-size: 20px;
         font-weight: bold;
@@ -131,176 +156,66 @@
         text-align: center;
     }
 
-    .hamburguesa-desc {
+    .product-description {
         color: #666;
         font-size: 14px;
         margin-bottom: 15px;
         line-height: 1.5;
+        text-align: center;
     }
 
-    .hamburguesa-opciones {
+    .product-options {
         color: #e3002a;
         font-size: 14px;
         font-style: italic;
-        margin-top: 10px;
-    }
-
-    .header-contenedor {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-    }
-
-    /* Estilos para el encabezado */
-    .header-categoria {
-        display: flex;
-        align-items: center;
-        margin: 30px 0 20px;
-        position: relative;
-        border-bottom: 2px solid #e3002a;
-        padding-bottom: 10px;
-    }
-
-    .titulo-con-flecha {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .boton-regreso {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 5px;
-        position: absolute;
-        left: 0;
-    }
-
-
-    .flecha-regreso {
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        border-left: 3px solid #e3002a;
-        border-bottom: 3px solid #e3002a;
-        transform: rotate(45deg);
-    }
-
-    .textos-categoria {
         text-align: center;
-        width: 100%;
-    }
-
-    .titulo-categoria {
-        color: #e3002a;
-        font-size: 26px;
-        margin: 0;
-    }
-
-    .subtitulo-categoria {
-        color: #333;
-        font-size: 18px;
-        margin: 5px 0 0;
-        font-weight: bold;
     }
 </style>
 
-
 <div class="menu-container">
-
-    <div class="header-categoria">
-        <button class="boton-regreso" onclick="history.back()">
-            <span class="flecha-regreso"></span>
-        </button>
-        <div class="textos-categoria">
-            <h2 class="titulo-categoria">HAMBURGUESAS</h2>
-            <p class="subtitulo-categoria">Dulce Sabor</p>
+    <!-- Encabezado con flecha integrada en el título -->
+    <div class="header-container">
+        <div class="title-wrapper">
+            <button class="back-button" onclick="history.back()">
+                <span class="back-arrow"></span>
+            </button>
+            <div class="title-content">
+                <h1 class="main-title">Menu</h1>
+                <p class="subtitle">Dulce Sabor</p>
+            </div>
         </div>
-    </div>
-    <!-- Sección de Filtros -->
-    <div class="filtros-container">
-        <div class="filtros-header">
-            <h2 class="filtros-titulo">Otras opciones</h2>
-        </div>
-        <div class="filtros-categorias">
-            <div class="filtro-item active">Todas</div>
-            <div class="filtro-item">Pizza</div>
-            <div class="filtro-item">Hot dog</div>
-            <div class="filtro-item">Pollo</div>
-            <div class="filtro-item">Postres</div>
-            <div class="filtro-item">Bebidas</div>
-            <div class="filtro-item">Tacos</div>
-            <div class="filtro-item">Burritos</div>
-            <div class="filtro-item">Combos</div>
-            <div class="filtro-item">Promociones</div>
-        </div>
+        <img src="~/img/logo.png" alt="Logo" class="logo">
     </div>
 
-    <div class="hamburguesas-grid">
-        <!-- Tus tarjetas de hamburguesas aquí -->
-    </div>
-</div>
-
-<!-- Sección de Hamburguesas -->
-<div class="hamburguesas-container">
-
-    <div class="hamburguesa-item">
-        <div class="hamburguesa-image" style="background-image: url('https://via.placeholder.com/280x160?text=Dulce+Sabor');"></div>
-        <div class="hamburguesa-content">
-            <h3 class="hamburguesa-name">Dulce Sabor</h3>
-            <p class="hamburguesa-description">Una explosión de sabores dulces y salados</p>
-            <p class="hamburguesa-options">- Otras opciones</p>
+    <!-- Sección de filtros -->
+    <div class="filters-container">
+        <h2 class="filters-title">Otras opciones</h2>
+        <div class="filters-grid">
+            <div class="filter-item active">Todas</div>
+            <div class="filter-item">Pizza</div>
+            <div class="filter-item">Hot dog</div>
+            <div class="filter-item">Pollo</div>
+            <div class="filter-item">Postres</div>
+            <div class="filter-item">Bebidas</div>
+            <div class="filter-item">Tacos</div>
+            <div class="filter-item">Burritos</div>
+            <div class="filter-item">Combos</div>
+            <div class="filter-item">Promociones</div>
         </div>
     </div>
 
-    <!-- Clasico -->
-    <div class="hamburguesa-item">
-        <div class="hamburguesa-image" style="background-image: url('https://via.placeholder.com/280x160?text=Clasico+America');"></div>
-        <div class="hamburguesa-content">
-            <h3 class="hamburguesa-name">Clasico América</h3>
-            <p class="hamburguesa-description">Carne de res, queso cheddar, lechuga, tomate y mayonesa en pan brioche</p>
-            <p class="hamburguesa-options">- Nos decides...<br>- Nos pedras...</p>
+    <!-- Sección de productos (hamburguesas) -->
+    <div class="products-grid">
+        <!-- Ejemplo de producto -->
+        <div class="product-card">
+            <div class="product-image" style="background-image: url('https://via.placeholder.com/400x300?text=Hamburguesa')"></div>
+            <div class="product-info">
+                <h3 class="product-name">Clásica Americana</h3>
+                <p class="product-description">Carne 100% res, queso cheddar, lechuga, tomate y salsa especial</p>
+                <p class="product-options">- Opción 1<br>- Opción 2</p>
+            </div>
         </div>
-    </div>
 
-    <!-- BBQ -->
-    <div class="hamburguesa-item">
-        <div class="hamburguesa-image" style="background-image: url('https://via.placeholder.com/280x160?text=BBQ+Supreme');"></div>
-        <div class="hamburguesa-content">
-            <h3 class="hamburguesa-name">BBQ Supreme</h3>
-            <p class="hamburguesa-description">Carne de res o pollo, cebolla caramelizada, queso derretido y salsa BBQ ahumada</p>
-            <p class="hamburguesa-options">- Nos detalles...<br>- Nos pedras...</p>
-        </div>
-    </div>
-
-    <!-- Tor-Mec  -->
-    <div class="hamburguesa-item">
-        <div class="hamburguesa-image" style="background-image: url('https://via.placeholder.com/280x160?text=Tor-Mec+Crucial');"></div>
-        <div class="hamburguesa-content">
-            <h3 class="hamburguesa-name">Tor-Mec Crucial</h3>
-            <p class="hamburguesa-description">Carne de res, la especial, queso pepper jack, guacamole y tiras crujientes</p>
-            <p class="hamburguesa-options">- Nos detalles...<br>- Nos pedras...</p>
-        </div>
-    </div>
-
-    <!-- Doble Queso  -->
-    <div class="hamburguesa-item">
-        <div class="hamburguesa-image" style="background-image: url('https://via.placeholder.com/280x160?text=Doble+Queso');"></div>
-        <div class="hamburguesa-content">
-            <h3 class="hamburguesa-name">Doble Queso Explosión</h3>
-            <p class="hamburguesa-description">Doble carne de res, doble queso cheddar, tomate y salsa especial</p>
-            <p class="hamburguesa-options">- Nos detalles...</p>
-        </div>
-    </div>
-
-    <!-- Smoky  -->
-    <div class="hamburguesa-item">
-        <div class="hamburguesa-image" style="background-image: url('https://via.placeholder.com/280x160?text=Smoky+Truffle');"></div>
-        <div class="hamburguesa-content">
-            <h3 class="hamburguesa-name">Smoky Truffle</h3>
-            <p class="hamburguesa-description">Carne Angus, queso gruyere, champiñones salteados y mayonesa de trufa</p>
-            <p class="hamburguesa-options">- Nos detalles...</p>
-        </div>
+        <!-- Más productos aquí -->
     </div>
 </div>
