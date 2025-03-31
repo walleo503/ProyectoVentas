@@ -6,137 +6,245 @@
         background-color: #f8f8f8;
         font-family: 'Arial', sans-serif;
         margin: 0;
+        padding: 20px;
     }
 
     .menu-header {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     .menu-title {
         color: #e3002a;
-        font-size: 28px;
+        font-size: 32px;
         font-weight: bold;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
-    .category-title {
-        color: #e3002a;
-        font-size: 24px;
-        text-align: center;
-        margin: 20px 0;
-    }
-
-   
-    .opciones-container {
-        background: white;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 0 0 30px 0; 
-        width: 100%; 
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        box-sizing: border-box;
-    }
-
-    .opciones-titulo {
-        color: #666;
-        font-size: 18px;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    .opciones-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .opcion-item {
-        background: #f5f5f5;
-        padding: 10px 15px;
-        border-radius: 5px;
-        text-align: center;
-        font-size: 14px;
-        min-width: 80px;
-    }
-
-    /* Estilo para el contenedor de hamburguesas */
-    .hamburguesas-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
+    /* Contenedor principal */
+    .menu-container {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 20px;
     }
 
-    .hamburguesa-item {
-        width: 280px;
+    /* Sección de filtros */
+    .filtros-container {
         background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .hamburguesa-image {
-        height: 160px;
+    .filtros-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+
+    .filtros-titulo {
+        color: #e3002a;
+        font-size: 22px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .filtros-categorias {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .filtro-item {
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .filtro-item:hover, .filtro-item.active {
+            background: #e3002a;
+            color: white;
+            border-color: #e3002a;
+        }
+
+    /* Sección de hamburguesas */
+    .categoria-titulo {
+        color: #e3002a;
+        font-size: 26px;
+        text-align: center;
+        margin: 30px 0 20px;
+        position: relative;
+    }
+
+        .categoria-titulo:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #e3002a;
+            margin: 10px auto 0;
+        }
+
+    .hamburguesas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 20px;
+    }
+
+    .hamburguesa-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+
+        .hamburguesa-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .hamburguesa-imagen {
+        height: 180px;
         background-color: #eee;
         background-size: cover;
         background-position: center;
     }
 
-    .hamburguesa-content {
-        padding: 15px;
+    .hamburguesa-info {
+        padding: 18px;
     }
 
-    .hamburguesa-name {
+    .hamburguesa-nombre {
         color: #333;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: bold;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         text-align: center;
     }
 
-    .hamburguesa-description {
+    .hamburguesa-desc {
         color: #666;
         font-size: 14px;
-        margin-bottom: 12px;
-        line-height: 1.4;
+        margin-bottom: 15px;
+        line-height: 1.5;
     }
 
-    .hamburguesa-options {
+    .hamburguesa-opciones {
         color: #e3002a;
-        font-size: 13px;
+        font-size: 14px;
         font-style: italic;
+        margin-top: 10px;
+    }
+
+    .header-contenedor {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    /* Estilos para el encabezado */
+    .header-categoria {
+        display: flex;
+        align-items: center;
+        margin: 30px 0 20px;
+        position: relative;
+        border-bottom: 2px solid #e3002a;
+        padding-bottom: 10px;
+    }
+
+    .titulo-con-flecha {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .boton-regreso {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        position: absolute;
+        left: 0;
+    }
+
+
+    .flecha-regreso {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-left: 3px solid #e3002a;
+        border-bottom: 3px solid #e3002a;
+        transform: rotate(45deg);
+    }
+
+    .textos-categoria {
+        text-align: center;
+        width: 100%;
+    }
+
+    .titulo-categoria {
+        color: #e3002a;
+        font-size: 26px;
+        margin: 0;
+    }
+
+    .subtitulo-categoria {
+        color: #333;
+        font-size: 18px;
+        margin: 5px 0 0;
+        font-weight: bold;
     }
 </style>
 
-<div class="menu-header">
-    <h1 class="menu-title">Menú por categoría</h1>
-</div>
 
-<h2 class="category-title">HAMBURGUESAS</h2>
+<div class="menu-container">
 
-<!-- Sección de Otras opciones -->
-<div class="opciones-container">
-    <div class="opciones-titulo">Otras opciones</div>
-    <div class="opciones-grid">
-        <div class="opcion-item">Pizza</div>
-        <div class="opcion-item">Hot dog</div>
-        <div class="opcion-item">Pollo</div>
-        <div class="opcion-item">Postres</div>
-        <div class="opcion-item">Bebidas</div>
-        <div class="opcion-item">Tacos</div>
-        <div class="opcion-item">Burritos</div>
-        <div class="opcion-item">Combos</div>
-        <div class="opcion-item">Promociones</div>
+    <div class="header-categoria">
+        <button class="boton-regreso" onclick="history.back()">
+            <span class="flecha-regreso"></span>
+        </button>
+        <div class="textos-categoria">
+            <h2 class="titulo-categoria">HAMBURGUESAS</h2>
+            <p class="subtitulo-categoria">Dulce Sabor</p>
+        </div>
+    </div>
+    <!-- Sección de Filtros -->
+    <div class="filtros-container">
+        <div class="filtros-header">
+            <h2 class="filtros-titulo">Otras opciones</h2>
+        </div>
+        <div class="filtros-categorias">
+            <div class="filtro-item active">Todas</div>
+            <div class="filtro-item">Pizza</div>
+            <div class="filtro-item">Hot dog</div>
+            <div class="filtro-item">Pollo</div>
+            <div class="filtro-item">Postres</div>
+            <div class="filtro-item">Bebidas</div>
+            <div class="filtro-item">Tacos</div>
+            <div class="filtro-item">Burritos</div>
+            <div class="filtro-item">Combos</div>
+            <div class="filtro-item">Promociones</div>
+        </div>
+    </div>
+
+    <div class="hamburguesas-grid">
+        <!-- Tus tarjetas de hamburguesas aquí -->
     </div>
 </div>
 
 <!-- Sección de Hamburguesas -->
 <div class="hamburguesas-container">
-  
+
     <div class="hamburguesa-item">
         <div class="hamburguesa-image" style="background-image: url('https://via.placeholder.com/280x160?text=Dulce+Sabor');"></div>
         <div class="hamburguesa-content">
