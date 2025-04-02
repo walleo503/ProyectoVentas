@@ -4,54 +4,95 @@
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="max-width: 900px; width: 100%;">
-        <div class="row">
-            <!-- Sección Datos Personales -->
-            <div class="col-md-7">
-                <h5 class="text-danger fw-bold">Datos Personales</h5>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label class="form-label">Nombres:</label>
-                        <input type="text" class="form-control border-danger" value="Jorge Alexis" readonly>
+        <form id="profileForm" asp-action="UpdateProfile" method="post">
+            <div class="row">
+                <div class="col-md-7">
+                    <h5 class="text-danger fw-bold">Datos Personales</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Nombres:</label>
+                            <input type="text" class="form-control border-danger" id="firstName" name="firstName" value="Jorge Alexis" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Apellidos:</label>
+                            <input type="text" class="form-control border-danger" id="lastName" name="lastName" value="Ramos Ramos" readonly>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Apellidos:</label>
-                        <input type="text" class="form-control border-danger" value="Ramos Ramos" readonly>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Correo:</label>
+                            <input type="email" class="form-control border-danger" id="email" name="email" value="jorge@gmail.com" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Teléfono:</label>
+                            <input type="text" class="form-control border-danger" id="phone" name="phone" value="12345678" readonly>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Dirección:</label>
+                        <input type="text" class="form-control border-danger" id="address" name="address"
+                               value="Ciudad Arce, La Libertad Centro, El Salvador" readonly>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label class="form-label">Correo:</label>
-                        <input type="email" class="form-control border-danger" value="jorge@gmail.com" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Teléfono:</label>
-                        <input type="text" class="form-control border-danger" value="12345678" readonly>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Dirección:</label>
-                    <input type="text" class="form-control border-danger"
-                           value="Ciudad Arce, La Libertad Centro, El Salvador" readonly>
-                </div>
-            </div>
 
-            <!-- Sección Inicio de Sesión -->
-            <div class="col-md-5">
-                <h5 class="text-danger fw-bold">Inicio Sesión</h5>
-                <div class="mb-3">
-                    <label class="form-label">Usuario:</label>
-                    <input type="text" class="form-control border-danger" value="Jorge123" readonly>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control border-danger" value="********" readonly>
-                </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-outline-danger">Cambiar Contraseña</button>
-                    <button class="btn btn-danger">Editar Cuenta</button>
+                <div class="col-md-5">
+                    <h5 class="text-danger fw-bold">Inicio Sesión</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Usuario:</label>
+                        <input type="text" class="form-control border-danger" id="username" name="username" value="Jorge123" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control border-danger" id="password" name="password" value="********" readonly>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-outline-danger" id="changePasswordBtn">Cambiar Contraseña</button>
+                        <button type="button" class="btn btn-danger" id="editProfileBtn">Editar Cuenta</button>
+                        <button type="submit" class="btn btn-success d-none" id="saveChangesBtn">Guardar Cambios</button>
+                        <button type="button" class="btn btn-outline-secondary d-none" id="cancelEditBtn">Cancelar</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
+@section Scripts {
+    <script>
+        let originalValues = {};
+
+        document.getElementById('editProfileBtn').addEventListener('click', function() {
+            const editableFields = ['firstName', 'lastName', 'email', 'phone', 'address'];
+            editableFields.forEach(field => {
+                const input = document.getElementById(field);
+                originalValues[field] = input.value;
+                input.readOnly = false;
+                input.classList.add('bg-light');
+            });
+
+            document.getElementById('saveChangesBtn').classList.remove('d-none');
+            document.getElementById('cancelEditBtn').classList.remove('d-none');
+
+            this.classList.add('d-none');
+        });
+
+        document.getElementById('cancelEditBtn').addEventListener('click', function() {
+            const editableFields = ['firstName', 'lastName', 'email', 'phone', 'address'];
+            editableFields.forEach(field => {
+                const input = document.getElementById(field);
+                input.value = originalValues[field];
+                input.readOnly = true;
+                input.classList.remove('bg-light');
+            });
+
+            document.getElementById('saveChangesBtn').classList.add('d-none');
+            document.getElementById('cancelEditBtn').classList.add('d-none');
+
+            document.getElementById('editProfileBtn').classList.remove('d-none');
+        });
+
+        document.getElementById('changePasswordBtn').addEventListener('click', function() {
+            alert('Funcionalidad de cambiar contraseña será implementada aquí');
+        });
+    </script>
+}
