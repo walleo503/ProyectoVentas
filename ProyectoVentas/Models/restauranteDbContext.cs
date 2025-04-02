@@ -4,10 +4,10 @@ namespace ProyectoVentas.Models
 {
     public class restauranteDbContext:DbContext
     {
-        public restauranteDbContext(DbContextOptions options) : base(options) 
-        { 
+        public restauranteDbContext(DbContextOptions options) : base(options)
+        {
 
-        
-        }    
+
+        }
     }
 }
