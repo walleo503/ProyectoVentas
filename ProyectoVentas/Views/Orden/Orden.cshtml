@@ -1,0 +1,153 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome para el ícono -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            color: #c0392b;
+            margin-bottom: 4rem;
+            margin-top: 3rem;
+        }
+
+        .linea-roja {
+            border-bottom: 3px solid #c0392b;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            margin-top: 2rem;
+        }
+
+        .table {
+            background-color: white;
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+        }
+
+            .table th, .table td {
+                border: none;
+                vertical-align: middle;
+                padding: 25px; /* Aumenta el espacio dentro de cada celda */
+            }
+
+            .table tbody tr {
+                height: 60px; /* Ajusta la altura de las filas */
+            }
+
+            .table thead th {
+                border-bottom: 3px solid #c0392b;
+                background-color: #f7f7f7;
+                color: #c0392b;
+            }
+
+        .actions {
+            cursor: pointer;
+        }
+
+        .botonPagina {
+            color: black;
+            background-color: lightgray;
+            border: none;
+        }
+    </style>
+    <title>Historial de Pedidos</title>
+</head>
+<body>
+    <div class="container mt-4 content-container">
+        <h1 class="linea-roja">Historial de Pedidos</h1>
+
+        <div class="d-flex justify-content-between my-3 mb-2">
+            <select class="form-control w-25 text-danger">
+                <option>Recientes</option>
+            </select>
+            
+            <div class="input-group w-50">
+                <input type="text" class="form-control" placeholder="Buscar por Recibo #, Órdenes, Nombres">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">
+                        <i class="fas fa-search"></i> 
+                    </button>
+                </div>
+            </div>
+            <span>1 - 2 de 4 órdenes</span>
+        </div>
+
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Num. Recibo</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Fecha de Pedido</th>
+                        <th scope="col">Items</th>
+                        <th scope="col">Total</th>
+                        <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HD032504</td>
+                        <td><span class="text-danger">Cancelado</span></td>
+                        <td>08/03/2025</td>
+                        <td>Hamburguesa...</td>
+                        <td>N/A</td>
+                        <td class="text-center actions">...</td>
+                    </tr>
+                    <tr>
+                        <td>RC032804</td>
+                        <td><span class="text-success">Recogido</span></td>
+                        <td>08/03/2025</td>
+                        <td>PROMO 2x1 P...</td>
+                        <td>$ 15.23</td>
+                        <td class="text-center actions">...</td>
+                    </tr>
+                    <tr>
+                        <td>HD032504</td>
+                        <td><span class="text-success">Recogido</span></td>
+                        <td>11/03/2025</td>
+                        <td>Hamburguesa...</td>
+                        <td>$ 5.03</td>
+                        <td class="text-center actions">...</td>
+                    </tr>
+                    <tr>
+                        <td>HD032504</td>
+                        <td><span class="text-success">Recogido</span></td>
+                        <td>10/03/2025</td>
+                        <td>Hamburguesa...</td>
+                        <td>$ 5.03</td>
+                        <td class="text-center actions">...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3">
+            <button class="btn btn-outline-primary botonPagina">← Anterior</button>
+            <button class="btn btn-outline-primary botonPagina">Siguiente →</button>
+        </div>
+
+        <footer class="mt-4 text-center">
+            <small>Footie</small>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Iniciar Sesión</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .login-container {
+            max-width: 800px;
+            margin: 50vh auto 0 auto; /* 50% de la altura de la pantalla */
+            transform: translateY(-50%); /* Ajusta para centrar completamente */
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            justify-content: center;
+        }
+
+        .login-title {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 3rem;
+            color: #343a40;
+            margin-bottom: 2rem;
+        }
+
+        .btn-custom {
+            background-color: red; /* Color rojo */
+            color: white;
+            max-width: 600px;
+        }
+
+        .form-control {
+            border: 2px solid gray; /* Color por defecto */
+            transition: border 0.3s ease-in-out;
+        }
+
+       .form-control:focus {
+                border-color: red; /* Cambia el borde cuando el usuario escribe */
+                outline: none;
+       }
+
+        .form-control::placeholder {
+            color: lightgray;
+        }
+
+        .labelPlaceholder {
+            float: left;
+            font-size: 18px;
+        }
+
+        .labelContrasenia {
+            float: right;
+            margin-bottom: 2rem;
+            color: black;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1 class="login-title">DULCE SABOR</h1>
+        <form>
+            <div class="form-group">
+                <label for="email" class="labelPlaceholder">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="labelPlaceholder">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+            </div>
+            <p><a href="#" class="labelContrasenia">Olvidaste tu contraseña?</a></p>
+            <button type="submit" class="btn btn-custom btn-block d-block mx-auto">¡INICIAR SESIÓN!</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
