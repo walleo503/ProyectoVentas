@@ -1,33 +1,34 @@
-﻿<div class="d-flex justify-content-center align-items-center vh-100">
+﻿@model ProyectoVentas.Models.cliente
+
+<div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4 shadow-sm w-75">
         <h4 class="text-danger text-center">Editar Datos Personales</h4>
 
         <form asp-action="EditarDatosPersonales" method="post">
             <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Nombres:</label>
-                    <input type="text" class="form-control border-danger" >
+                <div class="col-md-6">
+                    <label class="form-label">Nombre:</label>
+                    <input type="text" class="form-control border-danger" value=@Model.nombre asp-for="nombre">
                 </div>
-                <div class="col-md-4">
-                    <label class="form-label">Apellidos:</label>
-                    <input type="text" class="form-control border-danger">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Correo:</label>
-                    <input type="email" class="form-control border-danger">
+                <div class="col-md-6">
+                    <label class="form-label">Teléfono:</label>
+                    <input type="text" class="form-control border-danger" value=@Model.telefono asp-for="telefono">
                 </div>
             </div>
             <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Teléfono:</label>
-                    <input type="text" class="form-control border-danger">
-                </div>
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <label class="form-label">Dirección:</label>
-                    <input type="text" class="form-control border-danger">
+                    <input type="text" class="form-control border-danger" value=@Model.direccion asp-for="direccion">
                 </div>
             </div>
+            @if(ViewBag.Error != null)
+            {
+                <div>
+                    @ViewBag.Error
+                </div>
+            }
             <div class="d-flex justify-content-start">
+                <input hidden asp-for="clienteid"/>
                 <button type="submit" class="btn btn-danger me-2">Guardar</button>
                 <a asp-action="Perfil" class="btn btn-secondary">Cancelar</a>
             </div>

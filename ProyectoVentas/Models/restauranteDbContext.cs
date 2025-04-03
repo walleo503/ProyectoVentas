@@ -9,5 +9,8 @@ namespace ProyectoVentas.Models
 
 
         }
+
+        public DbSet<cliente> clientes { get; set; }
+        public DbSet<login_Cliente> login_cliente { get; set;}
     }
 }

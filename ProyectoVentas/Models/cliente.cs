@@ -10,7 +10,7 @@ namespace ProyectoVentas.Models
         public string? telefono { get; set; }
         public string? direccion {  get; set; }
         public decimal? latitud { get; set; }
-        public decimal? lonitud { get; set; }
+        public decimal? longitud { get; set; }
         public int? loginid { get; set; }
     }
 }
