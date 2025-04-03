@@ -7,12 +7,10 @@ namespace ProyectoVentas.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly restauranteDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, restauranteDbContext context)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _context = context;
         }
 
         public IActionResult Index()
@@ -36,17 +34,8 @@ namespace ProyectoVentas.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Menu()
+        public IActionResult Menu()
         {
-            //Obtener platos y combos
-            var platos = await _context.Platos.ToListAsync();
-            var combos = await _context.Combos
-                .Include(c => c.PlatosCombos)
-                .ThenInclude(pc => pc.Plato)
-                .ToListAsync();
-
-            ViewBag.Platos = platos;
-            ViewBag.Combos = combos;
             return View();
         }
 
