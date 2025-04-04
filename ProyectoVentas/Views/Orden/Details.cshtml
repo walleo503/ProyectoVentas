@@ -1,0 +1,35 @@
+﻿@model ProyectoVentas.Models.OrdenViewModel
+
+@{
+    ViewData["Title"] = "Detalles del Pedido - " + Model.NumRecibo;
+}
+
+<div class="container mt-4 content-container">
+    <h1 class="linea-roja">@ViewData["Title"]</h1>
+
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Descripción</th>  <!-- Nueva columna para la descripción -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Cantidad</td>
+                        <td>@item.Precio</td>
+                        <td>@item.Total</td>
+                        <td>@item.Descripcion</td> <!-- Mostrar la descripción del item -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

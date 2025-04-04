@@ -1,55 +1,59 @@
-﻿    @model IEnumerable<ProyectoVentas.Models.OrdenViewModel>
+﻿@model IEnumerable<ProyectoVentas.Models.OrdenViewModel>
 
-    @{
-        ViewData["Title"] = "Historial de Pedidos";
-    }
+@{
+    ViewData["Title"] = "Historial de Pedidos";
+}
 
-    <div class="container mt-4 content-container">
-        <h1 class="linea-roja">@ViewData["Title"]</h1>
+<div class="container mt-4 content-container">
+    <h1 class="linea-roja">@ViewData["Title"]</h1>
 
-        <div class="table-container">
-            <table class="table">
-                <thead>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Num. Recibo</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha de Pedido</th>
+                    <th scope="col">Items</th>
+                    <th scope="col">Total</th>
+                    <th scope="col" class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orden in Model)
+                {
                     <tr>
-                        <th scope="col">Num. Recibo</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Fecha de Pedido</th>
-                        <th scope="col">Items</th>
-                        <th scope="col">Total</th>
-                        <th scope="col" class="text-center">Acciones</th>
+                        <td>@orden.NumRecibo</td>
+                        <td>
+                            @if (orden.Estado == "Cancelado")
+                            {
+                                <span class="text-danger">@orden.Estado</span>
+                            }
+                            else
+                            {
+                                <span class="text-success">@orden.Estado</span>
+                            }
+                        </td>
+                        <td>@orden.FechaPedido.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                @foreach (var item in orden.Items)
+                                {
+                                    <li>
+                                        <i class="fas fa-utensils"></i>
+                                        @item.Nombre X @item.Cantidad
+                                    </li>
+                                }
+                            </ul>
+                        </td>
+                        <td>@(orden.Total.ToString() ?? "N/A")</td> <!-- Formato de total -->
+                        <td class="text-center">
+                            <a href="@Url.Action("Details", "Orden", new { id = orden.IdPedido })">Ver Detalles</a>
+
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach (var orden in Model)
-                    {
-                        <tr>
-                            <td>@orden.NumRecibo</td>
-                            <td>
-                                @if (orden.Estado == "Cancelado")
-                                {
-                                    <span class="text-danger">@orden.Estado</span>
-                                }
-                                else
-                                {
-                                    <span class="text-success">@orden.Estado</span>
-                                }
-                            </td>
-                            <td>@orden.FechaPedido.ToString("dd/MM/yyyy")</td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    @foreach (var item in orden.Items)
-                                    {
-                                        <li><i class="fas fa-utensils"></i> @item</li>
-                                    }
-                                </ul>
-                            </td>
-                            <td>@(orden.Total.ToString() ?? "N/A")</td>
-                            <td class="text-center">
-                                <a href="#" class="btn btn-outline-info btn-sm">Ver Detalles</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                }
+            </tbody>
+        </table>
     </div>
+</div>
