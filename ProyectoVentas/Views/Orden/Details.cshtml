@@ -4,32 +4,96 @@
     ViewData["Title"] = "Detalles del Pedido - " + Model.NumRecibo;
 }
 
-<div class="container mt-4 content-container">
-    <h1 class="linea-roja">@ViewData["Title"]</h1>
+<style>
+    .factura-container {
+        background-color: #fff;
+        padding: 30px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-    <div class="table-container">
-        <table class="table">
-            <thead>
+    .factura-header {
+        color: #e74c3c;
+        font-size: large;
+        border-bottom: 2px solid #e74c3c;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .columnasTabla {
+        color: #e74c3c;
+        font-size: large;
+    }
+
+    .factura-totales {
+        margin-top: 30px;
+        text-align: right;
+    }
+
+        .factura-totales table {
+            width: 100%;
+            max-width: 400px;
+            float: right;
+        }
+
+        .factura-totales td {
+            padding: 5px 10px;
+        }
+
+        .factura-totales .label {
+            font-weight: bold;
+        }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+    .centrado-negrita {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.05rem;
+    }
+</style>
+
+<div class="container mt-4 factura-container">
+    <h2 class="factura-header">@ViewData["Title"]</h2>
+
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th scope="col" class="columnasTabla">Producto</th>
+                <th scope="col" class="columnasTabla">Item</th>
+                <th scope="col" class="columnasTabla">Cantidad</th>
+                <th scope="col" class="columnasTabla">Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
                 <tr>
-                    <th scope="col">Item</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Descripción</th>  <!-- Nueva columna para la descripción -->
+                    <td style="width: 200px;">
+                        <img src="@item.ImagenUrl" alt="Imagen del item"
+                             style="width: 190px; height: 95px; object-fit: cover; border-radius: 8px;" />
+                    </td>
+                    <td class="centrado-negrita">@item.Nombre</td>
+                    <td class="centrado-negrita">@item.Cantidad</td>
+                    <td>@item.Descripcion</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Items)
-                {
-                    <tr>
-                        <td>@item.Nombre</td>
-                        <td>@item.Cantidad</td>
-                        <td>@item.Precio</td>
-                        <td>@item.Total</td>
-                        <td>@item.Descripcion</td> <!-- Mostrar la descripción del item -->
-                    </tr>
-                }
-            </tbody>
+            }
+        </tbody>
+    </table>
+
+    <div class="factura-totales">
+        <table>
+            <tr>
+                <td class="label columnasTabla">Subtotal:</td>
+                <td class="">@Model.Items.Sum(i => i.Precio * i.Cantidad).ToString("C")</td>
+            </tr>
+            <tr>
+                <td class="label columnasTabla">Total:</td>
+                <td class="">@Model.Total.ToString()</td>
+            </tr>
         </table>
     </div>
 </div>

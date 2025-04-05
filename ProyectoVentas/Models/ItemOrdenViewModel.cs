@@ -6,6 +6,7 @@
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
         public decimal Total { get; set; }
-        public string Descripcion { get; set; }  // Agregar la propiedad Descripción
+        public string Descripcion { get; set; }  
+        public string ImagenUrl { get; set; } 
     }
 }
