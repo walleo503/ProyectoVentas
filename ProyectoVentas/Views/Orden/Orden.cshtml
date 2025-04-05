@@ -4,13 +4,83 @@
     ViewData["Title"] = "Historial de Pedidos";
 }
 
-<div class="container mt-4 content-container">
-    <h1 class="linea-roja">@ViewData["Title"]</h1>
+<style>
+    .textos {
+        color: #e74c3c;
+        font-size: large;
+    }
 
-    <div class="table-container">
+    .textoFila {
+        font-size: medium;
+        margin: auto;
+    }
+
+    .titulo {
+        margin-bottom: 12px;
+        color: #e74c3c;
+    }
+
+    .underline {
+        display: inline-block;
+        border-bottom: 2px solid #e74c3c;
+        padding-bottom: 5px;
+    }
+
+    .btn-detalles {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        background-color: #e74c3c;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .btn-detalles:hover{
+        color:lightgray
+    }
+
+        .btn-detalles i {
+            margin-right: 8px;
+        }
+
+        .btn-detalles:hover {
+            background-color: #c0392b;
+        }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+
+    
+    .list-items {
+        margin: 0;
+        padding: 0;
+    }
+
+        .list-items span {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .list-items i {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+</style>
+
+<div class="container mt-4 content-container">
+    <div class="underline">
+        <h1 class="titulo">@ViewData["Title"]</h1>
+    </div>
+
+    <div class="table-container mt-3">
         <table class="table">
             <thead>
-                <tr>
+                <tr class="textos">
                     <th scope="col">Num. Recibo</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Fecha de Pedido</th>
@@ -19,7 +89,7 @@
                     <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="textoFila">
                 @foreach (var orden in Model)
                 {
                     <tr>
@@ -36,20 +106,21 @@
                         </td>
                         <td>@orden.FechaPedido.ToString("dd/MM/yyyy")</td>
                         <td>
-                            <ul class="list-unstyled">
+                            <div class="list-items">
                                 @foreach (var item in orden.Items)
                                 {
-                                    <li>
+                                    <span>
                                         <i class="fas fa-utensils"></i>
                                         @item.Nombre X @item.Cantidad
-                                    </li>
+                                    </span>
                                 }
-                            </ul>
+                            </div>
                         </td>
                         <td>@(orden.Total.ToString() ?? "N/A")</td> <!-- Formato de total -->
                         <td class="text-center">
-                            <a href="@Url.Action("Details", "Orden", new { id = orden.IdPedido })">Ver Detalles</a>
-
+                            <a href="@Url.Action("Details", "Orden", new { id = orden.IdPedido })" class="btn-detalles">
+                                <i class="fas fa-eye"></i> Ver Detalles
+                            </a>
                         </td>
                     </tr>
                 }
