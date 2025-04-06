@@ -54,6 +54,11 @@
         font-weight: bold;
         font-size: 1.05rem;
     }
+
+    .textoDescripcion{
+        font-size: medium;
+        padding: 12px;
+    }
 </style>
 
 <div class="container mt-4 factura-container">
@@ -64,6 +69,7 @@
             <tr>
                 <th scope="col" class="columnasTabla">Producto</th>
                 <th scope="col" class="columnasTabla">Item</th>
+                <th scope="col" class="columnasTabla">Precio u/c</th>
                 <th scope="col" class="columnasTabla">Cantidad</th>
                 <th scope="col" class="columnasTabla">Descripción</th>
             </tr>
@@ -77,6 +83,7 @@
                              style="width: 190px; height: 95px; object-fit: cover; border-radius: 8px;" />
                     </td>
                     <td class="centrado-negrita">@item.Nombre</td>
+                    <td class="centrado-negrita">@item.Precio</td>
                     <td class="centrado-negrita">@item.Cantidad</td>
                     <td>@item.Descripcion</td>
                 </tr>
@@ -92,7 +99,7 @@
             </tr>
             <tr>
                 <td class="label columnasTabla">Total:</td>
-                <td class="">@Model.Total.ToString()</td>
+                <td class="">$@Model.Total.ToString()</td>
             </tr>
         </table>
     </div>

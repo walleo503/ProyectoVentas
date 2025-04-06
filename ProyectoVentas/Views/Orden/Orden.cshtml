@@ -116,7 +116,7 @@
                                 }
                             </div>
                         </td>
-                        <td>@(orden.Total.ToString() ?? "N/A")</td> <!-- Formato de total -->
+                        <td>$@(orden.Total.ToString() ?? "N/A")</td> <!-- Formato de total -->
                         <td class="text-center">
                             <a href="@Url.Action("Details", "Orden", new { id = orden.IdPedido })" class="btn-detalles">
                                 <i class="fas fa-eye"></i> Ver Detalles
