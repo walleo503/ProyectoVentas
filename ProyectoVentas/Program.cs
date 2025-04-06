@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<restauranteDbContext>(opt =>
         opt.UseSqlServer(
-            builder.Configuration.GetConnectionString("RestauranteDbConnection")
+            builder.Configuration.GetConnectionString("Damian")
             )
 );
 

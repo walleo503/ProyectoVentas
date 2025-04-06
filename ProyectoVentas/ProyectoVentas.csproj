@@ -7,12 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
+    <Compile Remove="Views\Ventas_Linea\**" />
+    <Content Remove="Views\Ventas_Linea\**" />
+    <EmbeddedResource Remove="Views\Ventas_Linea\**" />
+    <None Remove="Views\Ventas_Linea\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Ventas_Linea\" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
   </ItemGroup>
 
 </Project>
