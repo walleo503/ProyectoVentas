@@ -1,4 +1,6 @@
-﻿<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+﻿@model ProyectoVentas.Models.Dtos.ClienteDto
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4 shadow-sm w-75">
@@ -6,31 +8,23 @@
 
         <h5 class="text-danger">Datos Personales</h5>
         <div class="row mb-3">
-            <div class="col-md-4">
-                <label class="form-label">Nombres:</label>
-                <p class="form-control border-danger">Nombres</p>
+            <div class="col-md-6">
+                <label class="form-label">Nombre:</label>
+                <p class="form-control border-danger">@Model.Cliente.nombre</p>
             </div>
-            <div class="col-md-4">
-                <label class="form-label">Apellidos:</label>
-                <p class="form-control border-danger">Apellidos</p>
-            </div>
-            <div class="col-md-4">
-                <label class="form-label">Correo:</label>
-                <p class="form-control border-danger">Correo</p>
+            <div class="col-md-6">
+                <label class="form-label">Teléfono:</label>
+                <p class="form-control border-danger">@Model.Cliente.telefono</p>
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col-md-4">
-                <label class="form-label">Teléfono:</label>
-                <p class="form-control border-danger">Telefono</p>
-            </div>
             <div class="col-md-8">
                 <label class="form-label">Dirección:</label>
-                <p class="form-control border-danger">Direccion</p>
+                <p class="form-control border-danger">@Model.Cliente.direccion</p>
             </div>
         </div>
         <div class="mb-3">
-            <a asp-action="EditarDatosPersonales" asp-route-idUsuario= class="btn btn-danger">Editar Datos Personales</a>
+            <a asp-action="EditarDatosPersonales" asp-route-clienteId=@Model.Cliente.clienteId class="btn btn-danger">Editar Datos Personales</a>
         </div>
 
         <hr class="border-danger mt-5 mb-5">
@@ -38,8 +32,8 @@
         <h5 class="text-danger">Inicio Sesión</h5>
         <div class="row mb-3">
             <div class="col-md-6">
-                <label class="form-label">Usuario:</label>
-                <p class="form-control border-danger">Usuario</p>
+                <label class="form-label">Correo:</label>
+                <p class="form-control border-danger">@Model.Login_Cliente.correo</p>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Contraseña:</label>
@@ -47,7 +41,7 @@
             </div>
         </div>
         <div>
-            <a asp-action="EditarInicioSesion" class="btn btn-danger">Editar Inicio Sesión</a>
+            <a asp-action="EditarInicioSesion" asp-route-loginId=@Model.Cliente.loginid class="btn btn-danger">Editar Inicio Sesión</a>
         </div>
     </div>
 </div>

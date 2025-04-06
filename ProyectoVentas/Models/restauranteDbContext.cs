@@ -18,6 +18,7 @@
             public DbSet<combos> combos { get; set; }
             public DbSet<Pedido_Online> pedido_Online { get; set; }
             public DbSet<Cliente> Cliente { get; set; }
+            public DbSet<Login_Cliente> Login_Clientes { get; set; }
             public DbSet<Carrito> Carrito { get; set; }
             public DbSet<Historial_Pedido> Historial_Pedido { get; set; }
             public DbSet<Ventas_En_Linea> Ventas_En_Linea { get; set; }
