@@ -59,8 +59,11 @@
                     .HasForeignKey(c => c.plato_id)
                     .HasConstraintName("FK_Carrito_PedidoOnline");
 
-                base.OnModelCreating(modelBuilder);
+                   
+
+
+            base.OnModelCreating(modelBuilder);
             }
 
-    }
+        }
     }

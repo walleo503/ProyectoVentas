@@ -74,7 +74,7 @@
 
     <div class="login-container">
         <h1 class="login-title">DULCE SABOR</h1>
-        <form>
+        <form asp-controller="Login" asp-action="ValidarLogin" method="post">
             <div class="form-group">
                 <label for="email" class="labelPlaceholder">Correo Electrónico</label>
                 <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
@@ -85,6 +85,11 @@
             </div>
             <p><a href="#" class="labelContrasenia">Olvidaste tu contraseña?</a></p>
             <button type="submit" class="btn btn-custom btn-block d-block mx-auto">¡INICIAR SESIÓN!</button>
+            @if (ViewBag.Mensaje != null){
+                <div class="alert alert-danger mt-3" role="alert">
+                    @ViewBag.Mensaje 
+                </div>
+            }
         </form>
     </div>
 
