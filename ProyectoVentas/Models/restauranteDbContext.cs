@@ -59,6 +59,10 @@
                     .HasForeignKey(c => c.plato_id)
                     .HasConstraintName("FK_Carrito_PedidoOnline");
 
+            modelBuilder.Entity<Cliente>()
+            .HasOne(c => c.LoginCliente)
+            .WithOne(p => p.Cliente)
+            .HasForeignKey<Login_Cliente>(l => l.Cliente); 
                    
 
 

@@ -10,6 +10,7 @@ namespace ProyectoVentas.Models
         public string correo { get; set; }
         public string? contrasena { get; set; }
         
+        public int ClienteId { get; set; }
         public virtual Cliente Cliente { get; set; }
      }
 }
