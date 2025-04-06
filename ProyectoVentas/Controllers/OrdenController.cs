@@ -90,5 +90,10 @@ namespace ProyectoVentas.Controllers
 
             return View(model);
         }
+
+        public IActionResult ConfirmarPedido()
+        {
+            return View();
+        }
     }
 }
