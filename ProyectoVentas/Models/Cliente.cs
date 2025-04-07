@@ -13,7 +13,7 @@ namespace ProyectoVentas.Models
         public decimal longitud { get; set; }
         public int loginid { get; set; }
 
-        public virtual Login_Cliente LoginCliente { get; set; }
+        public virtual Login_Cliente Login_Cliente { get; set; }
         // Relación con Pedido_Online (Un cliente puede tener varios pedidos)+
         public ICollection<Pedido_Online> PedidosOnline { get; set; }
     }

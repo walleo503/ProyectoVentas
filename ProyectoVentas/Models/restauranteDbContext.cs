@@ -23,7 +23,7 @@
             public DbSet<combo_promocion> combo_promocion { get; set; }
             public DbSet<Pedido_Online> pedido_Online { get; set; }
             public DbSet<Cliente> Cliente { get; set; }
-            public DbSet<Login_Cliente> Login_Clientes { get; set; }
+            public DbSet<Login_Cliente> Login_Cliente { get; set; }
             public DbSet<Carrito> Carrito { get; set; }
             public DbSet<Historial_Pedido> Historial_Pedido { get; set; }
             public DbSet<Ventas_En_Linea> Ventas_En_Linea { get; set; }
@@ -65,9 +65,9 @@
                     .HasConstraintName("FK_Carrito_PedidoOnline");
 
             modelBuilder.Entity<Cliente>()
-            .HasOne(c => c.LoginCliente)
+            .HasOne(c => c.Login_Cliente)
             .WithOne(p => p.Cliente)
-            .HasForeignKey<Login_Cliente>(l => l.Cliente);
+            .HasForeignKey<Login_Cliente>(l => l.clienteId);
 
 
             modelBuilder.Entity<menu_plato>()
