@@ -30,7 +30,7 @@ namespace ProyectoVentas.Controllers
                 RedirectToAction("Index", "Home");
             }
 
-            ClienteDto clienteDto = new ClienteDto
+            ClienteViewModel clienteDto = new ClienteViewModel
             {
                 Cliente = cliente,
                 Login_Cliente = login_cliente
@@ -83,7 +83,7 @@ namespace ProyectoVentas.Controllers
                 RedirectToAction("Index", "Home");
             }
 
-            EditarInicioSesionDto editarInicioSesionDto = new EditarInicioSesionDto
+            EditarInicioSesionViewModel editarInicioSesionDto = new EditarInicioSesionViewModel
             {
                 loginId = login_cliente.loginid,
                 correo = login_cliente.correo
@@ -93,7 +93,7 @@ namespace ProyectoVentas.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditarInicioSesion(EditarInicioSesionDto model)
+        public IActionResult EditarInicioSesion(EditarInicioSesionViewModel model)
         {
             var login_cliente = _context.Login_Clientes.FirstOrDefault(lc => lc.loginid == model.loginId);
             if (login_cliente == null)

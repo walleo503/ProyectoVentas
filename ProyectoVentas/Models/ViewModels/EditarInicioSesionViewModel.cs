@@ -1,6 +1,6 @@
 ﻿namespace ProyectoVentas.Models.Dtos
 {
-    public class EditarInicioSesionDto
+    public class EditarInicioSesionViewModel
     {
         public int loginId { get; set; }
         public string? correo { get; set; }
