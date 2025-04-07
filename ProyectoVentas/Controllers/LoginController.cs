@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace ProyectoVentas.Controllers
 {
+
     public class LoginController : Controller
     {
         private readonly restauranteDbContext _context;
