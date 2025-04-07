@@ -16,6 +16,9 @@
             public DbSet<empleados> empleados { get; set; }
             public DbSet<platos> platos { get; set; }
             public DbSet<combos> combos { get; set; }
+            public DbSet<promociones> promociones { get; set; }
+            public DbSet<combo_promocion> combo_promocion {  get; set; }    
+            public DbSet<menu_plato> menu_plato { get; set; }
             public DbSet<Pedido_Online> pedido_Online { get; set; }
             public DbSet<Cliente> Cliente { get; set; }
             public DbSet<Carrito> Carrito { get; set; }
@@ -58,7 +61,21 @@
                     .HasForeignKey(c => c.plato_id)
                     .HasConstraintName("FK_Carrito_PedidoOnline");
 
-                base.OnModelCreating(modelBuilder);
+
+                modelBuilder.Entity<menu_plato>()
+                    .HasOne(mp => mp.menu)
+                    .WithMany() // Puedes crear una lista en el modelo `menu` si lo deseas
+                    .HasForeignKey(mp => mp.menu_id)
+                    .HasConstraintName("FK_menu_plato_menu");
+
+                modelBuilder.Entity<menu_plato>()
+                    .HasOne(mp => mp.plato)
+                    .WithMany() // Igualmente, puedes crear una lista en `platos` si lo necesitas
+                    .HasForeignKey(mp => mp.plato_id)
+                    .HasConstraintName("FK_menu_plato_platos");
+
+
+            base.OnModelCreating(modelBuilder);
             }
 
     }

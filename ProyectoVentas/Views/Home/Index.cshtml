@@ -221,6 +221,64 @@
     </div>
 </section>
 
+<!-- Sección de Accesos Directos -->
+<section class="content-section" id="accesos-directos">
+    <div class="container">
+        <h2><strong class="recomment">Explora nuestro Menú</strong></h2>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="@Url.Action("Menu", "Home", new { filtro = "platos" })">
+                    <div class="card text-center">
+                        <img class="card-img-top" src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Platos">
+                        <div class="card-body">
+                            <h5 class="card-title">Platos disponibles</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="@Url.Action("Menu", "Home", new { filtro = "combos" })">
+                    <div class="card text-center">
+                        <img class="card-img-top" src="~/img/combo.png" alt="Combos">
+                        <div class="card-body">
+                            <h5 class="card-title">Combos</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="@Url.Action("Menu", "Home", new { filtro = "promociones" })">
+                    <div class="card text-center">
+                        <img class="card-img-top" src="~/img/promociones.png" alt="Promociones">
+                        <div class="card-body">
+                            <h5 class="card-title">Promociones</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="@Url.Action("Menu", "Home", new { filtro = "restaurante" })">
+                    <div class="card text-center">
+                        <img class="card-img-top" src="~/img/restaurante.png" alt="Solo Restaurante">
+                        <div class="card-body">
+                            <h5 class="card-title">Solo en restaurante</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+@* 
 <!-- Sección de Menú Destacado -->
 <section class="content-section" id="nuestros-favoritos">
     <div class="container">
@@ -258,4 +316,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> *@

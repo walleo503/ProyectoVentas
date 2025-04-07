@@ -10,5 +10,9 @@ namespace ProyectoVentas.Models
         public int? menu_id{ get; set; }
         public int? plato_id { get; set; }
         public int estado { get; set; }
+
+        
+        public menu menu { get; set; }         
+        public platos plato { get; set; }
     }
 }

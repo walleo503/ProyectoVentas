@@ -13,5 +13,8 @@ namespace ProyectoVentas.Models
         public string? imagen { get; set; }
         public int? categoria_id { get; set; }
         public int estado { get; set; }
+
+        public ICollection<menu_plato> MenuPlatos { get; set; }
+
     }
 }
