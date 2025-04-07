@@ -7,6 +7,10 @@ namespace ProyectoVentas.Models
     {
         [Key]
         public int loginid { get; set; }
-        public string? contraseña { get; set; }
-    }
+        public string correo { get; set; }
+        public string? contrasena { get; set; }
+        
+        public int ClienteId { get; set; }
+        public virtual Cliente Cliente { get; set; }
+     }
 }

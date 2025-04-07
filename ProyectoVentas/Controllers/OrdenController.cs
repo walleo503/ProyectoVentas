@@ -21,7 +21,7 @@ namespace ProyectoVentas.Controllers
 
         public IActionResult Orden()
         {
-            int clienteId = 1;
+            int clienteId = 1;//Estatico hasta que login funcione.
 
             var ordenes = _context.pedido_Online
                 .Where(p => p.id_pedido == clienteId)
@@ -89,6 +89,11 @@ namespace ProyectoVentas.Controllers
             };
 
             return View(model);
+        }
+
+        public IActionResult ConfirmarPedido()
+        {
+            return View();
         }
     }
 }

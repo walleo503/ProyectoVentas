@@ -1,36 +1,50 @@
-﻿<div class="d-flex justify-content-center align-items-center vh-100">
+﻿
+@model ProyectoVentas.Models.Cliente
+
+<div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4 shadow-sm w-75">
         <h4 class="text-danger text-center">Editar Datos Personales</h4>
 
         <form asp-action="EditarDatosPersonales" method="post">
             <div class="row mb-3">
                 <div class="col-md-4">
-                    <label class="form-label">Nombres:</label>
-                    <input type="text" class="form-control border-danger" >
+                    <label class="form-label">Nombre:</label>
+                    <input asp-for="nombre" type="text" class="form-control border-danger" value=@Model.nombre>
                 </div>
                 <div class="col-md-4">
-                    <label class="form-label">Apellidos:</label>
-                    <input type="text" class="form-control border-danger">
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">Correo:</label>
-                    <input type="email" class="form-control border-danger">
+                    <label class="form-label">Teléfono:</label>
+                    <input asp-for="telefono" type="text" class="form-control border-danger" value=@Model.telefono>
                 </div>
             </div>
             <div class="row mb-3">
-                <div class="col-md-4">
-                    <label class="form-label">Teléfono:</label>
-                    <input type="text" class="form-control border-danger">
-                </div>
                 <div class="col-md-8">
                     <label class="form-label">Dirección:</label>
-                    <input type="text" class="form-control border-danger">
+                    <input asp-for="direccion" type="text" class="form-control border-danger" value=@Model.direccion>
                 </div>
             </div>
+            @if (ViewBag.Error != null)
+            {
+                <div>
+                    @ViewBag.Error
+                </div>
+            }
             <div class="d-flex justify-content-start">
+                <input hidden asp-for="clienteId" value=@Model.clienteId/>
                 <button type="submit" class="btn btn-danger me-2">Guardar</button>
                 <a asp-action="Perfil" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <style>
+        .hamburger-icon i {
+            color: #F31539; /* o el color que necesites para que se vea */
+        }
+
+        .nav-menu a {
+            color: #F31539 !important;
+        }
+    </style>
+}

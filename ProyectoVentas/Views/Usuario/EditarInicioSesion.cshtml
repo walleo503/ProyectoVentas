@@ -1,4 +1,6 @@
-﻿<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+﻿@model ProyectoVentas.Models.Dtos.EditarInicioSesionDto
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4 shadow-sm w-50">
@@ -6,25 +8,44 @@
         
         <form asp-action="EditarInicioSesion" method="post">
             <div class="mb-3">
-                <label class="form-label">Usuario:</label>
-                <input type="text" class="form-control border-danger">
+                <label class="form-label">Correo:</label>
+                <input asp-for="correo" type="text" class="form-control border-danger" value=@Model.correo>
             </div>
             <div class="mb-3">
                 <label class="form-label">Contraseña Actual:</label>
-                <input type="password" class="form-control border-danger" name="ContrasenaActual" required>
+                <input asp-for="contrasenaActual" type="text" class="form-control border-danger" >
             </div>
             <div class="mb-3">
                 <label class="form-label">Nueva Contraseña:</label>
-                <input type="password" class="form-control border-danger" name="NuevaContrasena" required>
+                <input asp-for="contrasenaNueva" type="text" class="form-control border-danger" >
             </div>
             <div class="mb-3">
                 <label class="form-label">Confirmar Nueva Contraseña:</label>
-                <input type="password" class="form-control border-danger" name="ConfirmarContrasena" required>
+                <input asp-for="contrasenaNuevaConfirmacion" type="text" class="form-control border-danger" >
             </div>
+            @if (ViewBag.Error != null)
+            {
+                <div>
+                    @ViewBag.Error
+                </div>
+            }
             <div class="d-flex justify-content-start">
+                <input hidden asp-for="loginId" value=@Model.loginId />
                 <button type="submit" class="btn btn-danger me-2">Guardar</button>
                 <a asp-action="Perfil" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <style>
+        .hamburger-icon i {
+            color: #F31539; /* o el color que necesites para que se vea */
+        }
+
+        .nav-menu a {
+            color: #F31539 !important;
+        }
+    </style>
+}
