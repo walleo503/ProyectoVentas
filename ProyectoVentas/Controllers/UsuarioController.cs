@@ -23,7 +23,7 @@ namespace ProyectoVentas.Controllers
                 RedirectToAction("Index", "Home");
             }
 
-            var login_cliente = _context.Login_Clientes.FirstOrDefault(lc => lc.loginid == cliente.loginid);
+            var login_cliente = _context.Login_Cliente.FirstOrDefault(lc => lc.loginid == cliente.loginid);
 
             if (login_cliente == null)
             {
@@ -77,7 +77,7 @@ namespace ProyectoVentas.Controllers
 
         public IActionResult EditarInicioSesion(int loginId)
         {
-            var login_cliente = _context.Login_Clientes.FirstOrDefault(lc => lc.loginid == loginId);
+            var login_cliente = _context.Login_Cliente.FirstOrDefault(lc => lc.loginid == loginId);
             if (login_cliente == null)
             {
                 RedirectToAction("Index", "Home");
@@ -95,7 +95,7 @@ namespace ProyectoVentas.Controllers
         [HttpPost]
         public IActionResult EditarInicioSesion(EditarInicioSesionViewModel model)
         {
-            var login_cliente = _context.Login_Clientes.FirstOrDefault(lc => lc.loginid == model.loginId);
+            var login_cliente = _context.Login_Cliente.FirstOrDefault(lc => lc.loginid == model.loginId);
             if (login_cliente == null)
             {
                 RedirectToAction("Index", "Home");
@@ -107,7 +107,7 @@ namespace ProyectoVentas.Controllers
                 return View(model);
             }
 
-            if(!login_cliente.contrasena.Equals(model.contrasenaActual))
+            if(!login_cliente.contraseña.Equals(model.contrasenaActual))
             {
                 ViewBag.Error = "Contraseña actual incorrecta.";
                 return View(model);
@@ -120,9 +120,9 @@ namespace ProyectoVentas.Controllers
             }
 
             login_cliente.correo = model.correo;
-            login_cliente.contrasena = model.contrasenaNueva;
+            login_cliente.contraseña = model.contrasenaNueva;
 
-            _context.Login_Clientes.Entry(login_cliente).State = EntityState.Modified;
+            _context.Login_Cliente.Entry(login_cliente).State = EntityState.Modified;
             _context.SaveChanges();
 
             return RedirectToAction("Perfil");
